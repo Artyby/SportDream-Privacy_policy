@@ -1,0 +1,827 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Política de Privacidad — SportsDream</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --black: #0a0a0a;
+        --white: #f5f5f0;
+        --accent: #e63329;
+        --muted: #6b6b6b;
+        --border: #1e1e1e;
+        --card-bg: #111111;
+        --radius: 4px;
+        --max-w: 860px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--black);
+        color: var(--white);
+        font-family: "DM Sans", sans-serif;
+        font-size: 16px;
+        line-height: 1.75;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ── HEADER ── */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(10, 10, 10, 0.92);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        padding: 0 clamp(1.5rem, 5vw, 4rem);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+      }
+
+      header img {
+        height: 44px;
+        width: auto;
+        object-fit: contain;
+      }
+
+      .header-tag {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 0.85rem;
+        letter-spacing: 0.18em;
+        color: var(--accent);
+        text-transform: uppercase;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(4rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem)
+          clamp(3rem, 7vw, 6rem);
+        text-align: center;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse 70% 60% at 50% -10%,
+            rgba(230, 51, 41, 0.18) 0%,
+            transparent 70%
+          ),
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 39px,
+            rgba(255, 255, 255, 0.025) 40px
+          );
+        pointer-events: none;
+      }
+
+      .hero-eyebrow {
+        display: inline-block;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 0.8rem;
+        letter-spacing: 0.25em;
+        color: var(--accent);
+        border: 1px solid var(--accent);
+        padding: 0.25rem 0.9rem;
+        border-radius: 2px;
+        margin-bottom: 1.5rem;
+        opacity: 0;
+        animation: fadeUp 0.6s 0.1s ease forwards;
+      }
+
+      .hero h1 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(3rem, 8vw, 6rem);
+        letter-spacing: 0.04em;
+        line-height: 1;
+        color: var(--white);
+        opacity: 0;
+        animation: fadeUp 0.7s 0.25s ease forwards;
+      }
+
+      .hero h1 span {
+        color: var(--accent);
+      }
+
+      .hero-meta {
+        margin-top: 1.5rem;
+        font-size: 0.875rem;
+        color: var(--muted);
+        opacity: 0;
+        animation: fadeUp 0.7s 0.4s ease forwards;
+      }
+
+      .divider-line {
+        width: 60px;
+        height: 3px;
+        background: var(--accent);
+        margin: 2rem auto 0;
+        opacity: 0;
+        animation: fadeUp 0.7s 0.5s ease forwards;
+      }
+
+      /* ── MAIN CONTENT ── */
+      main {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: clamp(2rem, 6vw, 5rem) clamp(1.5rem, 5vw, 2rem);
+      }
+
+      /* intro paragraph */
+      .intro {
+        font-size: 1.1rem;
+        color: #c8c8c2;
+        border-left: 3px solid var(--accent);
+        padding-left: 1.5rem;
+        margin-bottom: 3.5rem;
+        opacity: 0;
+        animation: fadeUp 0.7s 0.6s ease forwards;
+      }
+
+      /* section cards */
+      .section {
+        margin-bottom: 2.5rem;
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: clamp(1.5rem, 4vw, 2.5rem);
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
+      }
+
+      .section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .section-number {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2rem;
+        color: var(--accent);
+        line-height: 1;
+        min-width: 2.5rem;
+      }
+
+      .section h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem;
+        letter-spacing: 0.06em;
+        color: var(--white);
+        line-height: 1.1;
+      }
+
+      .section p,
+      .section li {
+        font-size: 0.95rem;
+        color: #b0b0a8;
+        margin-bottom: 0.65rem;
+      }
+
+      .section ul,
+      .section ol {
+        padding-left: 1.25rem;
+      }
+
+      .section li {
+        margin-bottom: 0.5rem;
+      }
+
+      .section strong {
+        color: var(--white);
+        font-weight: 500;
+      }
+
+      /* highlight box */
+      .highlight-box {
+        background: rgba(230, 51, 41, 0.08);
+        border: 1px solid rgba(230, 51, 41, 0.25);
+        border-radius: var(--radius);
+        padding: 1rem 1.25rem;
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        color: #d4d4cc;
+      }
+
+      /* inline tag */
+      .tag {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        background: rgba(230, 51, 41, 0.15);
+        color: var(--accent);
+        border-radius: 2px;
+        padding: 0.15rem 0.55rem;
+        margin-right: 0.4rem;
+        margin-bottom: 0.35rem;
+      }
+
+      /* contact card */
+      .contact-card {
+        margin-top: 1.5rem;
+        display: grid;
+        gap: 0.5rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 0.9rem;
+        color: #b0b0a8;
+      }
+
+      .contact-item .icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: 1rem;
+      }
+
+      .contact-item a {
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.2s;
+      }
+      .contact-item a:hover {
+        border-color: var(--accent);
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 2.5rem clamp(1.5rem, 5vw, 4rem);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      footer img {
+        height: 36px;
+        opacity: 0.7;
+      }
+
+      .footer-text {
+        font-size: 0.8rem;
+        color: var(--muted);
+        text-align: right;
+      }
+
+      /* ── BACK TO TOP ── */
+      .back-top {
+        display: block;
+        text-align: center;
+        margin: 3rem auto 0;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 0.9rem;
+        letter-spacing: 0.15em;
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .back-top:hover {
+        color: var(--accent);
+      }
+
+      /* ── ANIMATIONS ── */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 600px) {
+        .section-number {
+          font-size: 1.5rem;
+          min-width: 2rem;
+        }
+        .section h2 {
+          font-size: 1.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <img
+        src="https://admin.twoeyesworld.com/wp-content/uploads/2025/10/SportDream-1.png"
+        alt="SportsDream Logo"
+        onerror="
+          this.style.display = 'none';
+          document.querySelector('.header-fallback').style.display = 'block';
+        "
+      />
+      <span
+        class="header-fallback"
+        style="
+          display: none;
+          font-family: &quot;Bebas Neue&quot;, sans-serif;
+          font-size: 1.4rem;
+          letter-spacing: 0.1em;
+          color: var(--white);
+        "
+        >SPORTSDREAM</span
+      >
+      <span class="header-tag">Política de Privacidad</span>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <span class="hero-eyebrow">Documento Legal</span>
+      <h1>Tu Privacidad,<br /><span>Nuestra Prioridad</span></h1>
+      <p class="hero-meta">
+        Última actualización: 31 de marzo de 2025 &nbsp;·&nbsp; SportsDream –
+        Sueño Deportivo
+      </p>
+      <div class="divider-line"></div>
+    </section>
+
+    <!-- MAIN -->
+    <main>
+      <p class="intro">
+        En <strong>SportsDream – Sueño Deportivo</strong> creemos que la
+        confianza se gana con transparencia. Esta Política de Privacidad
+        describe de forma clara y honesta cómo recopilamos, usamos y protegemos
+        tu información personal cuando compras con nosotros, visitas nuestra
+        tienda en línea o te comunicas con nuestro equipo. Léela con calma; es
+        tu derecho conocerla.
+      </p>
+
+      <!-- 1 -->
+      <article class="section" id="s1">
+        <div class="section-header">
+          <span class="section-number">01</span>
+          <h2>¿Quiénes Somos?</h2>
+        </div>
+        <p>
+          <strong>SportsDream – Sueño Deportivo</strong> es una tienda
+          especializada en artículos y vestimenta deportiva. Nuestro propósito
+          es equipar a cada atleta —del amateur al profesional— con lo mejor del
+          mercado para que puedan perseguir su sueño deportivo sin límites.
+        </p>
+        <p>
+          Somos el responsable del tratamiento de tus datos personales conforme
+          a las leyes de protección de datos aplicables en la República
+          Dominicana y cualquier otra jurisdicción donde operemos.
+        </p>
+      </article>
+
+      <!-- 2 -->
+      <article class="section" id="s2">
+        <div class="section-header">
+          <span class="section-number">02</span>
+          <h2>Información que Recopilamos</h2>
+        </div>
+        <p>
+          Cuando interactúas con SportsDream, podemos recopilar los siguientes
+          tipos de información:
+        </p>
+        <ul>
+          <li>
+            <strong>Datos de identificación:</strong> nombre completo, correo
+            electrónico, número de teléfono y dirección de envío o facturación.
+          </li>
+          <li>
+            <strong>Datos de pago:</strong> información de tarjetas de
+            crédito/débito o métodos de pago digitales. Estos datos se procesan
+            a través de pasarelas de pago seguras y <em>nunca</em> se almacenan
+            en nuestros servidores.
+          </li>
+          <li>
+            <strong>Datos de navegación:</strong> dirección IP, tipo de
+            navegador, páginas visitadas, tiempo de sesión y fuente de acceso.
+          </li>
+          <li>
+            <strong>Historial de compras:</strong> productos adquiridos, fechas
+            de pedidos y preferencias de talla o categoría.
+          </li>
+          <li>
+            <strong>Comunicaciones:</strong> mensajes que nos envíes por correo
+            electrónico, WhatsApp, redes sociales o formularios de contacto.
+          </li>
+        </ul>
+        <div class="highlight-box">
+          ⚡ Solo recopilamos la información que genuinamente necesitamos para
+          ofrecerte la mejor experiencia de compra. Nunca pedimos datos que no
+          sean relevantes.
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="section" id="s3">
+        <div class="section-header">
+          <span class="section-number">03</span>
+          <h2>¿Para Qué Usamos tu Información?</h2>
+        </div>
+        <p>
+          La información que recopilamos tiene propósitos específicos y
+          legítimos:
+        </p>
+        <ul>
+          <li>Procesar y gestionar tus pedidos, pagos y devoluciones.</li>
+          <li>
+            Enviarte confirmaciones de compra, actualizaciones de envío y
+            recibos.
+          </li>
+          <li>
+            Atender tus consultas, quejas o solicitudes de soporte postventa.
+          </li>
+          <li>
+            Personalizar tu experiencia de compra y mostrarte productos afines a
+            tus intereses.
+          </li>
+          <li>
+            Enviarte comunicaciones de marketing, ofertas y novedades deportivas
+            <strong>(solo si nos das tu consentimiento expreso)</strong>.
+          </li>
+          <li>
+            Prevenir fraudes, proteger la seguridad de nuestra plataforma y
+            cumplir obligaciones legales.
+          </li>
+          <li>
+            Mejorar nuestros productos, servicios y procesos internos mediante
+            análisis agregado y anónimo.
+          </li>
+        </ul>
+      </article>
+
+      <!-- 4 -->
+      <article class="section" id="s4">
+        <div class="section-header">
+          <span class="section-number">04</span>
+          <h2>Base Legal del Tratamiento</h2>
+        </div>
+        <p>Tratamos tus datos bajo las siguientes bases legales:</p>
+        <ul>
+          <li>
+            <span class="tag">Contrato</span> Ejecución de la compraventa y
+            entrega de productos.
+          </li>
+          <li>
+            <span class="tag">Consentimiento</span> Envío de comunicaciones
+            comerciales y uso de cookies no esenciales.
+          </li>
+          <li>
+            <span class="tag">Interés legítimo</span> Prevención de fraude,
+            seguridad de la plataforma y mejora del servicio.
+          </li>
+          <li>
+            <span class="tag">Obligación legal</span> Cumplimiento de normativas
+            fiscales, contables o regulatorias aplicables.
+          </li>
+        </ul>
+      </article>
+
+      <!-- 5 -->
+      <article class="section" id="s5">
+        <div class="section-header">
+          <span class="section-number">05</span>
+          <h2>Compartir tu Información con Terceros</h2>
+        </div>
+        <p>
+          <strong
+            >SportsDream no vende, arrienda ni cede tus datos personales a
+            terceros con fines comerciales.</strong
+          >
+          Sin embargo, podemos compartirlos con proveedores de confianza que nos
+          ayudan a operar nuestro negocio:
+        </p>
+        <ul>
+          <li>
+            <strong>Empresas de logística y mensajería</strong> para gestionar
+            la entrega de tus pedidos.
+          </li>
+          <li>
+            <strong>Pasarelas de pago certificadas</strong> (ej. PayPal, Stripe,
+            AZUL, CardNet) que procesan transacciones de forma segura.
+          </li>
+          <li>
+            <strong>Proveedores de tecnología</strong> como plataformas de
+            comercio electrónico, hosting o servicios de correo transaccional.
+          </li>
+          <li>
+            <strong>Autoridades competentes</strong> cuando así lo exija la ley,
+            una orden judicial o la defensa de nuestros derechos legales.
+          </li>
+        </ul>
+        <p>
+          Todos nuestros proveedores están sujetos a acuerdos de
+          confidencialidad y solo pueden usar tu información para prestar el
+          servicio específico que les hemos contratado.
+        </p>
+      </article>
+
+      <!-- 6 -->
+      <article class="section" id="s6">
+        <div class="section-header">
+          <span class="section-number">06</span>
+          <h2>Cookies y Tecnologías de Seguimiento</h2>
+        </div>
+        <p>
+          Nuestra tienda en línea utiliza cookies y tecnologías similares para
+          garantizar el correcto funcionamiento del sitio y mejorar tu
+          experiencia de navegación. Existen dos tipos:
+        </p>
+        <ul>
+          <li>
+            <strong>Cookies esenciales:</strong> necesarias para que el carrito
+            de compras, el inicio de sesión y los procesos de pago funcionen
+            correctamente. No pueden desactivarse.
+          </li>
+          <li>
+            <strong>Cookies de análisis y marketing:</strong> nos ayudan a
+            entender cómo navegas el sitio y a mostrarte anuncios relevantes.
+            Puedes aceptarlas o rechazarlas a través de nuestro banner de
+            cookies.
+          </li>
+        </ul>
+        <p>
+          Puedes gestionar las cookies desde la configuración de tu navegador en
+          cualquier momento. Ten en cuenta que deshabilitar ciertas cookies
+          puede afectar la funcionalidad del sitio.
+        </p>
+      </article>
+
+      <!-- 7 -->
+      <article class="section" id="s7">
+        <div class="section-header">
+          <span class="section-number">07</span>
+          <h2>Seguridad de tus Datos</h2>
+        </div>
+        <p>
+          La seguridad de tu información es algo que tomamos muy en serio.
+          Implementamos medidas técnicas y organizativas diseñadas para proteger
+          tus datos contra accesos no autorizados, pérdida, alteración o
+          divulgación:
+        </p>
+        <ul>
+          <li>
+            Cifrado SSL/TLS en todas las transmisiones de datos dentro de
+            nuestra plataforma.
+          </li>
+          <li>
+            Acceso restringido a la información personal únicamente al personal
+            autorizado.
+          </li>
+          <li>
+            Revisiones periódicas de nuestras prácticas de seguridad y
+            actualizaciones de sistemas.
+          </li>
+          <li>
+            Procesamiento de pagos a través de plataformas certificadas con
+            estándar PCI DSS.
+          </li>
+        </ul>
+        <div class="highlight-box">
+          🔒 Ningún sistema es 100% infalible. Si sospechas de algún uso
+          indebido de tu información, contáctanos de inmediato y actuaremos con
+          rapidez.
+        </div>
+      </article>
+
+      <!-- 8 -->
+      <article class="section" id="s8">
+        <div class="section-header">
+          <span class="section-number">08</span>
+          <h2>¿Cuánto Tiempo Conservamos tu Información?</h2>
+        </div>
+        <p>
+          Guardamos tus datos personales únicamente durante el tiempo necesario
+          para cumplir con los fines descritos en esta política o las
+          obligaciones legales que correspondan:
+        </p>
+        <ul>
+          <li>
+            <strong>Datos de cuenta y compras:</strong> durante toda la relación
+            comercial y hasta 5 años después de la última transacción, por
+            obligaciones fiscales.
+          </li>
+          <li>
+            <strong>Datos de comunicaciones:</strong> 2 años desde el último
+            contacto.
+          </li>
+          <li>
+            <strong>Datos de marketing:</strong> hasta que retires tu
+            consentimiento o solicites la baja.
+          </li>
+        </ul>
+        <p>
+          Una vez vencidos estos plazos, tus datos son eliminados de forma
+          segura o anonimizados de manera irreversible.
+        </p>
+      </article>
+
+      <!-- 9 -->
+      <article class="section" id="s9">
+        <div class="section-header">
+          <span class="section-number">09</span>
+          <h2>Tus Derechos sobre tus Datos</h2>
+        </div>
+        <p>
+          Como titular de tus datos personales, tienes derechos que puedes
+          ejercer en cualquier momento de forma gratuita y sin restricciones
+          injustificadas:
+        </p>
+        <ul>
+          <li>
+            <strong>Acceso:</strong> conocer qué datos tuyos tenemos y cómo los
+            usamos.
+          </li>
+          <li>
+            <strong>Rectificación:</strong> corregir información incorrecta o
+            desactualizada.
+          </li>
+          <li>
+            <strong>Supresión:</strong> solicitar la eliminación de tus datos
+            cuando ya no sean necesarios ("derecho al olvido").
+          </li>
+          <li>
+            <strong>Portabilidad:</strong> recibir tus datos en un formato
+            estructurado y de uso común.
+          </li>
+          <li>
+            <strong>Oposición:</strong> oponerte al tratamiento de tus datos
+            para fines de marketing directo.
+          </li>
+          <li>
+            <strong>Limitación:</strong> restringir el tratamiento de tus datos
+            en determinadas circunstancias.
+          </li>
+          <li>
+            <strong>Retirada del consentimiento:</strong> en cualquier momento,
+            sin que ello afecte la licitud del tratamiento previo.
+          </li>
+        </ul>
+        <p>
+          Para ejercer cualquiera de estos derechos, escríbenos a
+          <strong>privacidad@sportsdream.com</strong> indicando tu nombre, el
+          derecho que deseas ejercer y, si aplica, una copia de tu documento de
+          identidad. Respondemos en un plazo máximo de
+          <strong>30 días hábiles</strong>.
+        </p>
+      </article>
+
+      <!-- 10 -->
+      <article class="section" id="s10">
+        <div class="section-header">
+          <span class="section-number">10</span>
+          <h2>Menores de Edad</h2>
+        </div>
+        <p>
+          Nuestros servicios están dirigidos a personas mayores de 18 años. No
+          recopilamos de forma consciente datos personales de menores de edad
+          sin el consentimiento verificable de su padre, madre o tutor legal. Si
+          descubrimos que hemos recopilado datos de un menor sin dicho
+          consentimiento, los eliminaremos de forma inmediata.
+        </p>
+        <p>
+          Si eres padre o tutor y crees que tu hijo nos ha facilitado
+          información personal, contáctanos a la brevedad posible.
+        </p>
+      </article>
+
+      <!-- 11 -->
+      <article class="section" id="s11">
+        <div class="section-header">
+          <span class="section-number">11</span>
+          <h2>Cambios a Esta Política</h2>
+        </div>
+        <p>
+          Podemos actualizar esta Política de Privacidad periódicamente para
+          reflejar cambios en nuestras prácticas, en la legislación aplicable o
+          en los servicios que ofrecemos. Cuando lo hagamos, actualizaremos la
+          fecha de "última actualización" al inicio del documento.
+        </p>
+        <p>
+          Si los cambios son significativos, te notificaremos de manera
+          proactiva por correo electrónico o mediante un aviso prominente en
+          nuestro sitio web. Te recomendamos revisar esta página periódicamente.
+        </p>
+      </article>
+
+      <!-- 12 Contacto -->
+      <article class="section" id="s12">
+        <div class="section-header">
+          <span class="section-number">12</span>
+          <h2>¿Tienes Dudas? Contáctanos</h2>
+        </div>
+        <p>
+          Estamos aquí para responder cualquier pregunta sobre esta política o
+          sobre el tratamiento de tus datos personales. No dudes en comunicarte
+          con nosotros:
+        </p>
+        <div class="contact-card">
+          <div class="contact-item">
+            <span class="icon">✉</span>
+            <span
+              >Correo:
+              <a href="mailto:privacidad@sportsdream.com"
+                >privacidad@sportsdream.com</a
+              ></span
+            >
+          </div>
+          <div class="contact-item">
+            <span class="icon">📍</span>
+            <span>República Dominicana</span>
+          </div>
+          <div class="contact-item">
+            <span class="icon">🕐</span>
+            <span>Respondemos en un plazo máximo de 30 días hábiles</span>
+          </div>
+        </div>
+      </article>
+
+      <a href="#" class="back-top">↑ &nbsp; Volver al inicio</a>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <img
+        src="https://admin.twoeyesworld.com/wp-content/uploads/2025/10/SportDream-1.png"
+        alt="SportsDream"
+        onerror="this.style.display = 'none'"
+      />
+      <div class="footer-text">
+        <p>
+          © 2025 SportsDream – Sueño Deportivo. Todos los derechos reservados.
+        </p>
+        <p style="margin-top: 0.25rem">
+          Política de Privacidad · República Dominicana
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Scroll-reveal for section cards
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
+      );
+
+      document.querySelectorAll(".section").forEach((el, i) => {
+        el.style.transitionDelay = `${i * 0.04}s`;
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>
